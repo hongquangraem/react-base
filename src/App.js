@@ -1,5 +1,5 @@
 import { ConnectedRouter } from 'connected-react-router'
-import { Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { history } from './utils/history'
 
