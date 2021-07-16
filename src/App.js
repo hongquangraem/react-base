@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { ConnectedRouter } from 'connected-react-router'
+import { Suspense } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import { history } from './utils/history'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ConnectedRouter history={history}>
+      <Suspense fallback={<h1>Loading ...</h1>}>
+        <Switch>
+          <Route path="/" render={() => <div>Home page</div>} />
+          <Route path="/users" render={() => <div>Users page</div>}>
+            AA
+          </Route>
+        </Switch>
+      </Suspense>
+    </ConnectedRouter>
+  )
 }
 
-export default App;
+export default App
